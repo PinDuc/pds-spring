@@ -29,13 +29,6 @@ pds 플젝
 * DB는 RDB , NoSQL 등 다양한 저장소를 고민중인 상황으로 가정한다.
 * 개발을 진행하기 위해 초기 개발 단ㄱ뎨에서는 가벼운 메모리 기반의 데이터 저장소를 사용한다.
 
-<pre>
-<code>
-public class BootSpringBootApplication {
-  public static void main(String[] args) {
-    System.out.println("Hello, Honeymon");
-  }
+# H2 와 jdbc
 
-}
-</code>
-</pre>
+* h2 db 를 jdbc로 연결한 상태이다. 

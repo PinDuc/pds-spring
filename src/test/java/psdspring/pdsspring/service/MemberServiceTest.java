@@ -4,8 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import psdspring.pdsspring.domain.Member;
-import psdspring.pdsspring.domain.MemberRepository;
-import psdspring.pdsspring.domain.MemoryMemberRepository;
+import psdspring.pdsspring.repository.MemoryMemberRepository;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;

@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import psdspring.pdsspring.domain.Member;
-import psdspring.pdsspring.domain.MemoryMemberRepository;
 import psdspring.pdsspring.service.MemberService;
 
 import java.util.List;

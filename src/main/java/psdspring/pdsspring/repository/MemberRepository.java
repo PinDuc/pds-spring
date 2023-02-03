@@ -1,4 +1,6 @@
-package psdspring.pdsspring.domain;
+package psdspring.pdsspring.repository;
+
+import psdspring.pdsspring.domain.Member;
 
 import java.util.List;
 import java.util.Optional;

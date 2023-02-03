@@ -1,6 +1,7 @@
-package psdspring.pdsspring.domain;
+package psdspring.pdsspring.repository;
 
-import org.springframework.stereotype.Repository;
+import psdspring.pdsspring.domain.Member;
+import psdspring.pdsspring.repository.MemberRepository;
 
 import java.util.*;
 

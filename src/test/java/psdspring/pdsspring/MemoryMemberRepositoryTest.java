@@ -1,16 +1,13 @@
 package psdspring.pdsspring;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
+
 import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import psdspring.pdsspring.domain.Member;
-import psdspring.pdsspring.domain.MemberRepository;
-import psdspring.pdsspring.domain.MemoryMemberRepository;
+import psdspring.pdsspring.repository.MemberRepository;
+import psdspring.pdsspring.repository.MemoryMemberRepository;
 import java.util.List;
-import java.util.Optional;
-
-import java.awt.*;
 
 public class MemoryMemberRepositoryTest {
 

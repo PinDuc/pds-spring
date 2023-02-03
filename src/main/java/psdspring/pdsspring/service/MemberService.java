@@ -1,15 +1,10 @@
 package psdspring.pdsspring.service;
 
-import jakarta.websocket.server.ServerEndpoint;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import psdspring.pdsspring.domain.Member;
-import psdspring.pdsspring.domain.MemberRepository;
-import psdspring.pdsspring.domain.MemoryMemberRepository;
+import psdspring.pdsspring.repository.MemberRepository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 public class MemberService {
 
