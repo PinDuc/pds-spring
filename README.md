@@ -119,3 +119,50 @@ private T error;
   </code></pre>
 
 * Exception은 msg와 status를 전달하기위해 getter를 추가하여 작성했다.
+* # advice 설정하기
+<code><pre>
+
+@RestControllerAdvice
+public class CommonAdvice {
+
+@ExceptionHandler(CommonException.class)
+public ResponseEntity commonExceptionAdvice(CommonException ce){
+List<CommonError> errorList = new ArrayList<>();
+CommonError commonError = new CommonError(ce.getMsg());
+errorList.add(commonError);
+
+        CommonErrorV1<List<CommonError>> result = new CommonErrorV1<>(errorList);
+        return new ResponseEntity<CommonErrorV1>(result, ce.getStatus());
+    }
+}
+</code></pre>
+
+* 에러 처리를 위해 다음과 같이 설정해주었다. 에러가 일어날 경우 여러 정보를 전송하기 위해 배열 형태로 처리하는 경우가 보편적이라 배열 형태로 생성했다.
+ 
+### test controller test
+
+<code><pre>
+@GetMapping("/v1/error")
+public ResponseEntity error(){
+
+    CommonV1.CommonV1Builder<Object> builder = CommonV1.builder();
+    builder.result("success");
+    builder.code("200");
+    builder.data(null);
+    builder.msg("성공");
+
+    CommonV1 result = builder.build();
+
+    if(true) throw new CommonException("내가 만든 exception", HttpStatus.FOUND);
+    return new ResponseEntity(result, HttpStatus.OK);
+}
+</code></pre>
+
+* 아까 만들어 두었던 test controller에 다음과 같이 코드를 추가하자.
+* 코드를 보면 아까 전에 테스트와 거의 동일한데 마지막 return 전에 exception을 발생시키도록 처리해두었다.
+
+  ![img.png](https://velog.velcdn.com/images%2Fililil9482%2Fpost%2F8e0d1684-ade8-4549-a93b-dc0fcdb74ad0%2Fimage.png "이미지 설명(title)")
+* exception이 정상적으로 에러로 처리되었고 상태 코드값과 메세지도 내가 작성한 내용 그대로 정상적으로 전달되었다!
+
+# 이후 작업
+* 이제 api를 작업할때 위 공통 class들을 상속받아 필요한 정보를 더 추가해서 작업하면 될것이다!
