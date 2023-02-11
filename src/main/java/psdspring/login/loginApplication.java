@@ -4,11 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PdsSpringApplication {
+public class loginApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(PdsSpringApplication.class, args);
+		SpringApplication.run(loginApplication.class, args);
 	}
 
 }

@@ -49,3 +49,30 @@ public class CommonV1(T) { //
 * @Builder 빌더 패턴 생성 
 * @AllArgsConstructor 모든 변수들을 포함한 생성자 생성이다.
 
+## test controller 만들기
+#### 위의 response대로 정말 반환되는지 확인해보기 위해 test controller를 작성해보자
+
+<code><pre>
+
+@RestController
+public class TestController {
+@GetMapping("/v1/test")
+public ResponseEntity test(){
+
+        CommonV1.CommonV1Builder<Object> builder = CommonV1.builder();
+        builder.result("success");
+        builder.code("200");
+        builder.data(null);
+        builder.msg("성공");
+
+        CommonV1 result = builder.build();
+        return new ResponseEntity(result, HttpStatus.OK);
+    }
+}
+</code></pre>
+
+* test controller를 만들어 테스트해보면
+
+![img.png](https://velog.velcdn.com/images%2Fililil9482%2Fpost%2F8d7fb69e-e356-4ae6-ba13-f585b2604ebf%2Fimage.png "이미지 설명(title)")
+
+* 내가 생각했던 결과를 return 받을 수 있다.
