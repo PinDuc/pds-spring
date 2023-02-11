@@ -76,3 +76,46 @@ public ResponseEntity test(){
 ![img.png](https://velog.velcdn.com/images%2Fililil9482%2Fpost%2F8d7fb69e-e356-4ae6-ba13-f585b2604ebf%2Fimage.png "이미지 설명(title)")
 
 * 내가 생각했던 결과를 return 받을 수 있다.
+
+# 공통 error 처리
+
+* 다음으로는 exception이 발생했을 때 error에 대한 처리가 필요한데 이를 처리해보자.
+
+* 우선 CommonErrorV1 class를 만든다. response의 CommonV1과 마찬가지로 반환하기 위한 객체를 담을 클래스인데.
+
+<code><pre>
+
+@Getter
+@AllArgsConstructor
+public class CommonErrorV1<T> {
+private T error;
+}
+</code></pre>
+
+* 다음과 같이 error들을 담을 것이기 때문에 이렇게 작성했다.
+* 그리고 response와 다르게 error를 담아야하기 때문에 error 객체를 정의한 클래스도 만들어야하는데
+
+  <code><pre>
+  @Getter
+  @AllArgsConstructor
+  public class CommonError {
+  private String msg;
+  }
+  </code></pre>
+
+* CommonError라는 클래스명으로 msg만 전달하도록 작성했다. 다른 전달하고 싶은 정보가 있다면 변수를 추가해서 전달하면 된다.
+
+* 그러면 우리가 작성한 error를 반환할 수 있도록 설정을 해보자!
+
+# exception 만들기
+* 간단한 exception을 하나 만들어보자.
+  <code><pre>
+  @AllArgsConstructor
+  @Getter
+  public class CommonException extends RuntimeException{
+  private String msg;
+  private HttpStatus status;
+  }
+  </code></pre>
+
+* Exception은 msg와 status를 전달하기위해 getter를 추가하여 작성했다.
